@@ -60,7 +60,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return field
     }()
     
-    private let facebookLoginButton = FBLoginButton()
+
 
     
     private let loginButton: UIButton = {
@@ -71,6 +71,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         button.layer.cornerRadius = 12
         button.layer.masksToBounds = true
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+        return button
+    }()
+    
+    private let facebookLoginButton: FBLoginButton = {
+        let button = FBLoginButton()
+        button.permissions = ["email,public_profile"]
         return button
     }()
     
@@ -86,6 +92,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         emailField.delegate = self
         passwordField.delegate = self
+        facebookLoginButton.delegate = self
         
         // Add subviews
         view.addSubview(scrollView)
@@ -180,4 +187,33 @@ extension LoginViewController: UITextViewDelegate {
     }
 }
 
-
+extension LoginViewController: LoginButtonDelegate {
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        // no operation
+    }
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        guard let token = result?.token?.tokenString else {
+            print("Failed to login using facebook")
+            return
+        }
+        
+        let credential = FacebookAuthProvider.credential(withAccessToken: token)
+        
+        FirebaseAuth.Auth.auth().signIn(with: credential, completion: { [weak self] authResult, error in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            guard authResult != nil, error == nil else {
+                print("Facebook credential login failed, MFA may be needed")
+                return
+            }
+            print("Successfully logged user in")
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+       
+        })
+    }
+    
+    
+}
