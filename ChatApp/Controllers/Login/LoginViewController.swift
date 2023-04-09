@@ -8,9 +8,11 @@
 import UIKit
 import FirebaseAuth
 import FacebookLogin
+import FacebookCore
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.clipsToBounds = true
@@ -26,7 +28,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }()
     
     private let emailField: UITextField = {
-       let field = UITextField()
+        let field = UITextField()
         
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
@@ -43,7 +45,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }()
     
     private let passwordField: UITextField = {
-       let field = UITextField()
+        let field = UITextField()
         
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
@@ -60,8 +62,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return field
     }()
     
-
-
+    
+    
     
     private let loginButton: UIButton = {
         let button = UIButton()
@@ -115,31 +117,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailField.frame = CGRect(x: 30,
                                   y: imageView.bottom + 10,
                                   width: scrollView.width-60,
-                                 height: 52)
+                                  height: 52)
         passwordField.frame = CGRect(x: 30,
-                                  y: emailField.bottom + 10,
-                                  width: scrollView.width-60,
-                                 height: 52)
+                                     y: emailField.bottom + 10,
+                                     width: scrollView.width-60,
+                                     height: 52)
         loginButton.frame = CGRect(x: 30,
                                    y: passwordField.bottom + 10,
                                    width: scrollView.width-60,
                                    height: 52)
         
         facebookLoginButton.frame = CGRect(x: 30,
-                                   y: loginButton.bottom + 10,
-                                   width: scrollView.width-60,
-                                   height: 52)
+                                           y: loginButton.bottom + 10,
+                                           width: scrollView.width-60,
+                                           height: 52)
     }
     
-
+    
     @objc private func loginButtonTapped() {
         
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
         guard let email = emailField.text, let password = passwordField.text,
               !email.isEmpty, !password.isEmpty, password.count>=6 else {
-                    alertUserLoginError()
-                    return
+            alertUserLoginError()
+            return
         }
         //Firebise Log In
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] authResult, error in
@@ -198,21 +200,60 @@ extension LoginViewController: LoginButtonDelegate {
             return
         }
         
-        let credential = FacebookAuthProvider.credential(withAccessToken: token)
+        let facebookRequest = FBSDKLoginKit.GraphRequest(graphPath: "me",
+                                                         parameters: ["fields": "email, name"],
+                                                         tokenString: token,
+                                                         version: nil,
+                                                         httpMethod: .get)
         
-        FirebaseAuth.Auth.auth().signIn(with: credential, completion: { [weak self] authResult, error in
-            guard let strongSelf = self else {
+        facebookRequest.start(completionHandler: { _, result, error in
+            guard let result = result as? [String: Any],
+                  error == nil else {
+                print("Failed to make facebook graph request")
                 return
             }
             
-            guard authResult != nil, error == nil else {
-                print("Facebook credential login failed, MFA may be needed")
+            
+            guard let userName = result["name"] as? String,
+                  let email = result["email"] as? String else {
+                print("Failed to get email and name from fb result")
                 return
             }
-            print("Successfully logged user in")
-            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
-       
+            
+            let nameComponents = userName.components(separatedBy: " ")
+            guard nameComponents.count == 2 else {
+                return
+            }
+            
+            let firstName = nameComponents[0]
+            let lastName = nameComponents[1]
+            
+            DatabaseManager.shared.userExists(with: email, completion: { exists in
+                if !exists {
+                    DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName,
+                                                                        lastName: lastName,
+                                                                        emailAdress: email))
+                }
+            })
+            
+            let credential = FacebookAuthProvider.credential(withAccessToken: token)
+            
+            FirebaseAuth.Auth.auth().signIn(with: credential, completion: { [weak self] authResult, error in
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                guard authResult != nil, error == nil else {
+                    print("Facebook credential login failed, MFA may be needed")
+                    return
+                }
+                print("Successfully logged user in")
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                
+            })
         })
+        
+        
     }
     
     
