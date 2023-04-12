@@ -17,4 +17,10 @@ pod 'FacebookLogin'
 # pod 'GoogleSignIn', '< 5.0.0'
 # pod 'GoogleUtilities'
 
+pod 'MessageKit'
+pod 'JGProgressHUD'
+pod 'RealmSwift'
+pod 'SDWebImage'
+
+
 end
