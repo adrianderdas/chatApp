@@ -20,15 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
    
-
-        
         FirebaseApp.configure()
         
         ApplicationDelegate.shared.application(
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
-        
         return true
     }
     
@@ -37,12 +34,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         open url: URL,
         options: [UIApplication.OpenURLOptionsKey : Any] = [:]
     ) -> Bool {
+        
         ApplicationDelegate.shared.application(
             app,
             open: url,
             sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
             annotation: options[UIApplication.OpenURLOptionsKey.annotation]
         )
+//        let email = user.profile.email
+//        DatabaseManager.shared.userExists(with: email, completion: { exists in
+//            if !exists {
+//                // insert to database
+//                let chatUser = ChatAppUser(firstName: firstName,
+//                                           lastName: lastName,
+//                                           emailAdress: email)
+//                DatabaseManager.shared.insertUser(with: chatUser, completion: { success in
+//                    if success {
+//                        // upload image
+//                    }
+//                })
+//            }
+//        })
     }
 }
 
