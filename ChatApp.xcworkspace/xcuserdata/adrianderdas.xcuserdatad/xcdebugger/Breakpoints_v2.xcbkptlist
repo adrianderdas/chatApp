@@ -14,9 +14,9 @@
             filePath = "ChatApp/Resources/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
-            landmarkName = "finishCreatingConversation(conversationID:firstMessage:completion:)"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
+            landmarkName = "finishCreatingConversation(name:conversationID:firstMessage:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
