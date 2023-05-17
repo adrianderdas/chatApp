@@ -29,7 +29,7 @@
         <scene sceneID="cn2-Py-FM8">
             <objects>
                 <viewController id="KGa-3z-eak" customClass="ProfileViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="38L-9Q-geX" customClass="profile">
+                    <view key="view" contentMode="scaleToFill" id="38L-9Q-geX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

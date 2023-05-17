@@ -24,7 +24,7 @@ final class StorageManager {
     public func uploadProfilePicture(with data: Data,
                                      fileName: String,
                                      completion: @escaping UploadPictureCompletion) {
-        storage.child("message_images/\(fileName)").putData(data, metadata: nil, completion: { metadata, error in
+        storage.child("images/\(fileName)").putData(data, metadata: nil, completion: { metadata, error in
             guard error == nil else {
                 // failed
                 print("failed to upload data to firebase for picture")
@@ -32,7 +32,7 @@ final class StorageManager {
                 return
             }
             
-            self.storage.child("message_images/\(fileName)").downloadURL(completion: { url, error in
+            self.storage.child("images/\(fileName)").downloadURL(completion: { url, error in
                 guard let url = url else {
                     print("Failed to get download url")
                     completion(.failure(StorageErrors.failedToGetDownUrl))
