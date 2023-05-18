@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GO7-p1-gp9">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -79,7 +78,7 @@
         <scene sceneID="KKS-Hx-kDW">
             <objects>
                 <navigationController id="ZZl-uo-uJ8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chats" id="PnV-Ru-GLe"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="message" catalog="system" id="PnV-Ru-GLe"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Puc-q5-CWG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
@@ -102,7 +101,7 @@
         <scene sceneID="wyx-cf-OX0">
             <objects>
                 <navigationController id="NWM-Iw-v0Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="gue-ML-MPT"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="gue-ML-MPT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="nsL-2F-33i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -121,6 +120,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="message" catalog="system" width="128" height="113"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
