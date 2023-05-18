@@ -10,6 +10,8 @@ import MessageKit
 import InputBarAccessoryView
 import CloudKit
 import SDWebImage
+import AVFoundation
+import AVKit
 
 struct Message: MessageType {
     public var sender: SenderType
@@ -70,6 +72,7 @@ class ChatViewController: MessagesViewController {
         formatter.dateStyle = .medium
         formatter.timeStyle = .long
         formatter.timeZone = .current
+        formatter.locale = Locale(identifier: "en_US")
         return formatter
     }()
     
@@ -192,9 +195,9 @@ class ChatViewController: MessagesViewController {
             let picker = UIImagePickerController()
             picker.sourceType = .photoLibrary
             picker.delegate = self
-            picker.allowsEditing = true
             picker.mediaTypes=["public.movie"]
             picker.videoQuality = .typeMedium
+            picker.allowsEditing = true
             self?.present(picker, animated: true)
         }))
  
@@ -207,7 +210,7 @@ class ChatViewController: MessagesViewController {
         DatabaseManager.shared.getAllMessagesForConversation(with: id, completion: { [weak self] result in
             switch result {
             case .success(let messages):
-                print("success in getting messages:\(messages)")
+                print("success in getting messages:")
                 guard !messages.isEmpty else {
                     print("messages are empty")
                     return
@@ -328,15 +331,15 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
                     DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: strongSelf.otherUserEmail, name: name, newMessage: message, completion: { success in
                         
                         if success {
-                            print("sent photo message")
+                            print("sent video message")
                         }
                         else {
-                            print("failed to send photo message")
+                            print("failed to send video message")
                         }
                     })
                     
                 case .failure(let error):
-                    print("message photo upload error: \(error)")
+                    print("message video upload error: \(error)")
                 }
             })
         }
@@ -460,6 +463,17 @@ extension ChatViewController: MessageCellDelegate {
             }
             let vc = PhotoViewViewController(with: imageUrl)
             self.navigationController?.pushViewController(vc, animated: true)
+        case .video(let media):
+            guard let videoUrl = media.url else {
+                return
+            }
+            
+            let vc = AVPlayerViewController()
+            vc.player = AVPlayer(url: videoUrl)
+            vc.player?.play()
+            present(vc, animated: true)
+            
+
         default:
             break
         }

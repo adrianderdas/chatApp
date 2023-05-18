@@ -25,6 +25,7 @@
 		A2B6C5D829CC99A300D61F74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2B6C5D729CC99A300D61F74 /* Assets.xcassets */; };
 		A2B6C5DB29CC99A300D61F74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B6C5D929CC99A300D61F74 /* LaunchScreen.storyboard */; };
 		A2D83D6C29CE5D9100B5DB0E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D83D6B29CE5D9100B5DB0E /* Extensions.swift */; };
+		A2EDEF4C2A15A792006626D3 /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EDEF4B2A15A792006626D3 /* NewConversationCell.swift */; };
 		C71DBD05D0C963A7B676BF7E /* Pods_ChatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3128A4C2DCD96B49936A5A2D /* Pods_ChatApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		A2B6C5DC29CC99A300D61F74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2D83D6A29CE27B200B5DB0E /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D83D6B29CE5D9100B5DB0E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A2EDEF4B2A15A792006626D3 /* NewConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationCell.swift; sourceTree = "<group>"; };
 		AF45A35361FAB7871F4693CC /* Pods-ChatApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.release.xcconfig"; path = "Target Support Files/Pods-ChatApp/Pods-ChatApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 				A2305CF829CCA58700C3BA64 /* Storyboards */,
 				A2B6C5D729CC99A300D61F74 /* Assets.xcassets */,
 				A2966F0A2A09B6B400758DB8 /* ConversationTableViewCell.swift */,
+				A2EDEF4B2A15A792006626D3 /* NewConversationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2305CFE29CCA78900C3BA64 /* PhotoViewViewController.swift in Sources */,
+				A2EDEF4C2A15A792006626D3 /* NewConversationCell.swift in Sources */,
 				A2925FB329D5B8F4000F112A /* DatabaseManager.swift in Sources */,
 				A2305CFA29CCA74600C3BA64 /* LoginViewController.swift in Sources */,
 				A2305D0229CCA7C700C3BA64 /* NewConversationViewController.swift in Sources */,
@@ -456,7 +460,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 323SMA9H24;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -465,7 +469,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,7 +494,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 323SMA9H24;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -499,7 +503,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
