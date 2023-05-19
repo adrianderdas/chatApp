@@ -10,7 +10,7 @@ import FirebaseAuth
 import JGProgressHUD
 import SwiftUI
 
-class RegisterViewController: UIViewController, UITextFieldDelegate {
+final class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     private let spinner = JGProgressHUD(style: .dark)
     

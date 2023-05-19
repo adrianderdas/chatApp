@@ -10,11 +10,9 @@ import Firebase
 import FacebookCore
 
 
-
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -41,20 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
             annotation: options[UIApplication.OpenURLOptionsKey.annotation]
         )
-//        let email = user.profile.email
-//        DatabaseManager.shared.userExists(with: email, completion: { exists in
-//            if !exists {
-//                // insert to database
-//                let chatUser = ChatAppUser(firstName: firstName,
-//                                           lastName: lastName,
-//                                           emailAdress: email)
-//                DatabaseManager.shared.insertUser(with: chatUser, completion: { success in
-//                    if success {
-//                        // upload image
-//                    }
-//                })
-//            }
-//        })
+
     }
 }
+
+
 

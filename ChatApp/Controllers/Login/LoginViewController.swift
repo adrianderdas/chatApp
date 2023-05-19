@@ -14,7 +14,7 @@ import JGProgressHUD
 
 
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+final class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private let spinner = JGProgressHUD(style: .dark)
     
