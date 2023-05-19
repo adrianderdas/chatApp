@@ -15,6 +15,8 @@ PODS:
     - FBSDKLoginKit/Login (= 5.15.1)
   - FBSDKLoginKit/Login (5.15.1):
     - FBSDKCoreKit (~> 5.0)
+  - Firebase/Analytics (10.8.0):
+    - Firebase/Core
   - Firebase/Auth (10.8.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 10.8.0)
@@ -23,6 +25,9 @@ PODS:
     - FirebaseAnalytics (~> 10.8.0)
   - Firebase/CoreOnly (10.8.0):
     - FirebaseCore (= 10.8.0)
+  - Firebase/Crashlytics (10.8.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 10.8.0)
   - Firebase/Database (10.8.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 10.8.0)
@@ -63,6 +68,14 @@ PODS:
     - FirebaseCore (~> 10.0)
   - FirebaseCoreInternal (10.8.0):
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
+  - FirebaseCrashlytics (10.8.0):
+    - FirebaseCore (~> 10.5)
+    - FirebaseInstallations (~> 10.0)
+    - FirebaseSessions (~> 10.5)
+    - GoogleDataTransport (~> 9.2)
+    - GoogleUtilities/Environment (~> 7.8)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (~> 2.1)
   - FirebaseDatabase (10.8.0):
     - FirebaseCore (~> 10.0)
     - leveldb-library (~> 1.22)
@@ -71,6 +84,14 @@ PODS:
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
     - PromisesObjC (~> 2.1)
+  - FirebaseSessions (10.9.0):
+    - FirebaseCore (~> 10.5)
+    - FirebaseCoreExtension (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleDataTransport (~> 9.2)
+    - GoogleUtilities/Environment (~> 7.10)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesSwift (~> 2.1)
   - FirebaseStorage (10.8.0):
     - FirebaseAppCheckInterop (~> 10.0)
     - FirebaseAuthInterop (~> 10.0)
@@ -97,6 +118,10 @@ PODS:
     - GoogleUtilities/Network (~> 7.8)
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
     - nanopb (< 2.30910.0, >= 2.30908.0)
+  - GoogleDataTransport (9.2.3):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
   - GoogleUtilities/AppDelegateSwizzler (7.11.1):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -130,6 +155,8 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.2.0)
+  - PromisesSwift (2.2.0):
+    - PromisesObjC (= 2.2.0)
   - Realm (10.38.0):
     - Realm/Headers (= 10.38.0)
   - Realm/Headers (10.38.0)
@@ -142,8 +169,10 @@ PODS:
 DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
+  - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
+  - Firebase/Crashlytics
   - Firebase/Database
   - Firebase/Storage
   - JGProgressHUD
@@ -165,10 +194,13 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreExtension
     - FirebaseCoreInternal
+    - FirebaseCrashlytics
     - FirebaseDatabase
     - FirebaseInstallations
+    - FirebaseSessions
     - FirebaseStorage
     - GoogleAppMeasurement
+    - GoogleDataTransport
     - GoogleUtilities
     - GTMSessionFetcher
     - InputBarAccessoryView
@@ -177,6 +209,7 @@ SPEC REPOS:
     - MessageKit
     - nanopb
     - PromisesObjC
+    - PromisesSwift
     - Realm
     - RealmSwift
     - SDWebImage
@@ -194,10 +227,13 @@ SPEC CHECKSUMS:
   FirebaseCore: e78636a990b54be427ce300aa09a0e359f4e0e87
   FirebaseCoreExtension: d815fd6fec8bb3a0940bc02dd5e3e641ea7229d8
   FirebaseCoreInternal: fa2899eb1f340054858d289e5a0fb935a0a74e52
+  FirebaseCrashlytics: 24f41a26d1a90767278a27bef3ea9ae6d80c7016
   FirebaseDatabase: e9415a93447361b65e312186b169812acfb75acc
   FirebaseInstallations: b2a05a3fe707df764345d68685534d07d0664af3
+  FirebaseSessions: 44a6782502eb279a214d4adca20891353278760c
   FirebaseStorage: f3b5085c577880d8eb25f9cf08385d487adc31e5
   GoogleAppMeasurement: 0ba93018e916f7badf915c2337d43cc1fa96b3f9
+  GoogleDataTransport: f0308f5905a745f94fb91fea9c6cbaf3831cb1bd
   GoogleUtilities: 9aa0ad5a7bc171f8bae016300bfcfa3fb8425749
   GTMSessionFetcher: c9e714f7eec91a55641e2bab9f45fd83a219b882
   InputBarAccessoryView: 1d7b0a672b36e370f01f264b3907ef39d03328e3
@@ -206,10 +242,11 @@ SPEC CHECKSUMS:
   MessageKit: a1ba0c69ebead94029867853eb44dd05b9b3f453
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
+  PromisesSwift: cf9eb58666a43bbe007302226e510b16c1e10959
   Realm: 5902885dd1d5e71b0b020830caab937ecdf5bf07
   RealmSwift: 0fc037d6c32c7c4fc9362892380f380114ecdcf0
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
 
-PODFILE CHECKSUM: 502a760f4cd365c73a8a9dae09e2098a7e41ed8a
+PODFILE CHECKSUM: e049ea06af91b47e8954bb8a1fc917a9f3002ff9
 
 COCOAPODS: 1.12.0
