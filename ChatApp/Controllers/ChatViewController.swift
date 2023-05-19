@@ -164,6 +164,46 @@ class ChatViewController: MessagesViewController {
     }
     
     private func presentLocationPicker() {
+        let vc = LocationPickerViewController(coordinates: nil)
+        vc.title = "Pick Location"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        vc.completion = { [weak self] selectedCoordinates in
+            
+            guard let strongSelf = self else {
+                return
+            }
+
+            guard let messageId = strongSelf.createMessageId(),
+                  let conversationId = strongSelf.conversationId,
+                  let name = strongSelf.title,
+                  let selfSender = strongSelf.selfSender else {
+                return
+            }
+            
+            let longitude: Double = selectedCoordinates.longitude
+            let latitude: Double = selectedCoordinates.latitude
+            
+            print("longitude=\(longitude), latitude=\(latitude)")
+            
+            let location = Location(location: CLLocation(latitude: latitude, longitude: longitude),
+                                                      size: .zero)
+
+            let message = Message(sender: selfSender,
+                                  messageId: messageId,
+                                  sentDate: Date(),
+                                  kind: .location(location))
+            
+            DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: strongSelf.otherUserEmail, name: name, newMessage: message, completion: { success in
+                
+                if success {
+                    print("sent location message")
+                }
+                else {
+                    print("failed to send location message")
+                }
+            })
+        }
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -263,9 +303,9 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         guard let messageId = createMessageId(),
-        let conversationId = conversationId,
-        let name = self.title,
-        let selfSender = selfSender else {
+              let conversationId = conversationId,
+              let name = self.title,
+              let selfSender = selfSender else {
             return
         }
         
@@ -462,6 +502,29 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
 }
 
 extension ChatViewController: MessageCellDelegate {
+    func didTapMessage(in cell: MessageCollectionViewCell) {
+        guard let indexPath = messagesCollectionView.indexPath(for: cell) else {
+            return
+        }
+
+        let message = messages[indexPath.section]
+        
+        switch message.kind {
+        case .location(let locationData):
+            let coordinates = locationData.location.coordinate
+            let vc = LocationPickerViewController(coordinates: coordinates)
+            vc.title = "Location"
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+  
+     default:
+            break
+        }
+        
+    }
+    
+    
+    
     func didTapImage(in cell: MessageCollectionViewCell) {
         guard let indexPath = messagesCollectionView.indexPath(for: cell) else {
             return
