@@ -480,7 +480,7 @@ extension DatabaseManager {
                     let media = Media(url: videoUrl,
                                       image: nil,
                                       placeholderImage: placeHolder,
-                                      size: CGSize(width: 300, height: 300))
+                                      size: CGSize(width: 169, height: 200))
                     kind = .video(media)
                 }
                 else if type == "location" {

@@ -35,7 +35,7 @@ final class LocationPickerViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         if isPickable {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send",
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Wyślij",
                                                                 style: .done,
                                                                 target: self,
                                                                 action: #selector(sendButtonTapped))

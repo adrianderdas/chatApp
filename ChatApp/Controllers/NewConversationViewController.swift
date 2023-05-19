@@ -23,7 +23,7 @@ final class NewConversationViewController: UIViewController {
     
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for users..."
+        searchBar.placeholder = "Wyszukaj adresata"
         return searchBar
     }()
     

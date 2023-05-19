@@ -17,22 +17,25 @@ final class ProfileViewController: UIViewController {
     
     var data = [ProfileViewModel]()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(ProfileTableViewCell.self,
                            forCellReuseIdentifier: ProfileTableViewCell.identifier)
         
         data.append(ProfileViewModel(viewModelType: .info,
-                                     title: "Name:\(UserDefaults.standard.value(forKey: "name") as? String ?? "No Name")",
+                                     title: "Imię i nazwisko :\(UserDefaults.standard.value(forKey: "name") as? String ?? "No Name")",
                                      handler: nil))
         data.append(ProfileViewModel(viewModelType: .info,
-                                     title: "Email:\(UserDefaults.standard.value(forKey: "email") as? String ?? "No Email")",
+                                     title: "email: \(UserDefaults.standard.value(forKey: "email") as? String ?? "No Email")",
                                      handler: nil))
 
         data.append(ProfileViewModel(viewModelType: .logout,
-                                     title: "Log out",
+                                     title: "Wyloguj się",
                                      handler: { [weak self] in
             
+            
+
             guard let strongSelf = self else {
                 return
             }
@@ -40,7 +43,7 @@ final class ProfileViewController: UIViewController {
             let actionSheet = UIAlertController(title: "",
                                           message: "",
                                           preferredStyle: .actionSheet)
-            actionSheet.addAction(UIAlertAction(title: "Log out",
+            actionSheet.addAction(UIAlertAction(title: "Wyloguj się",
                                                 style: .destructive,
                                                 handler: { [weak self] _ in
                 
@@ -70,7 +73,7 @@ final class ProfileViewController: UIViewController {
                 
             }))
             
-            actionSheet.addAction(UIAlertAction(title: "Cancel",
+            actionSheet.addAction(UIAlertAction(title: "Anuluj",
                                                 style: .cancel,
                                                 handler: nil))
             strongSelf.present(actionSheet, animated: true)
@@ -100,7 +103,7 @@ final class ProfileViewController: UIViewController {
                                               y: 0,
                                               width: self.view.width,
                                               height: 300))
-        headerView.backgroundColor = .red
+        headerView.backgroundColor = .systemBackground
         
         let imageView = UIImageView(frame: CGRect(x: (headerView.width-150) / 2,
                                                   y: 75,
@@ -108,7 +111,7 @@ final class ProfileViewController: UIViewController {
                                                   height: 150))
     
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = .systemBackground
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 3
         imageView.layer.masksToBounds = true
@@ -137,6 +140,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         let viewModel = data[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier,
                                                  for: indexPath) as! ProfileTableViewCell
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         cell.setUp(with: viewModel)
         return cell
     }
@@ -145,6 +149,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         data[indexPath.row].handler?()
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // Ustawienie stylu separatora na .none
+        tableView.separatorStyle = .none
     }
 }
 

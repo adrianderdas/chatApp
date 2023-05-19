@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Chats-->
+        <!--Wiadomości-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ConversationsViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,13 +18,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chats" id="2pI-e7-E5m"/>
+                    <navigationItem key="navigationItem" title="Wiadomości" id="2pI-e7-E5m"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-850" y="1482"/>
         </scene>
-        <!--Profile-->
+        <!--Twoje dane-->
         <scene sceneID="cn2-Py-FM8">
             <objects>
                 <viewController id="KGa-3z-eak" customClass="ProfileViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,7 +46,7 @@
                             <constraint firstItem="Bj8-c9-aLy" firstAttribute="top" secondItem="dzH-xk-g3M" secondAttribute="top" id="vKU-af-zYj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="uPN-MK-1uL"/>
+                    <navigationItem key="navigationItem" title="Twoje dane" id="uPN-MK-1uL"/>
                     <connections>
                         <outlet property="tableView" destination="Bj8-c9-aLy" id="Aio-FC-KSd"/>
                     </connections>
@@ -74,11 +74,11 @@
             </objects>
             <point key="canvasLocation" x="-22" y="-269"/>
         </scene>
-        <!--Chats-->
+        <!--Wiadomości-->
         <scene sceneID="KKS-Hx-kDW">
             <objects>
                 <navigationController id="ZZl-uo-uJ8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chats" image="message" catalog="system" id="PnV-Ru-GLe"/>
+                    <tabBarItem key="tabBarItem" title="Wiadomości" image="message" catalog="system" id="PnV-Ru-GLe"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Puc-q5-CWG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
@@ -97,11 +97,11 @@
             </objects>
             <point key="canvasLocation" x="-850" y="595"/>
         </scene>
-        <!--Profile-->
+        <!--Profil-->
         <scene sceneID="wyx-cf-OX0">
             <objects>
                 <navigationController id="NWM-Iw-v0Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="gue-ML-MPT"/>
+                    <tabBarItem key="tabBarItem" title="Profil" image="person.circle" catalog="system" id="gue-ML-MPT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="nsL-2F-33i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>

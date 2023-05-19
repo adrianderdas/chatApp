@@ -91,30 +91,30 @@ final class ChatViewController: MessagesViewController {
     }
     
     private func presentInputActionSheet() {
-        let actionSheet = UIAlertController(title: "Attach Media",
-                                            message: "What would you like to attach?",
+        let actionSheet = UIAlertController(title: "Co chcesz wysłać?",
+                                            message: nil,
                                             preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Photo", style: .default, handler: {[weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: "Zdjęcie", style: .default, handler: {[weak self] _ in
             self?.presentPhotoInputActionSheet()
         }))
-        actionSheet.addAction(UIAlertAction(title: "Video", style: .default, handler: { [weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: "Wideo", style: .default, handler: { [weak self] _ in
             self?.presentVideoInputActionSheet()
 
         }))
-        actionSheet.addAction(UIAlertAction(title: "Audio", style: .default, handler: { _ in
-            
-        }))
-        actionSheet.addAction(UIAlertAction(title: "Share location", style: .default, handler: { [weak self] _ in
+//        actionSheet.addAction(UIAlertAction(title: "Audio", style: .default, handler: { _ in
+//
+//        }))
+        actionSheet.addAction(UIAlertAction(title: "Udostępnij lokalizację", style: .default, handler: { [weak self] _ in
             self?.presentLocationPicker()
         }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Anuluj", style: .cancel, handler: nil))
         
         present(actionSheet, animated: true)
     }
     
     private func presentLocationPicker() {
         let vc = LocationPickerViewController(coordinates: nil)
-        vc.title = "Pick Location"
+        vc.title = "Zaznacz lokalizację"
         vc.navigationItem.largeTitleDisplayMode = .never
         vc.completion = { [weak self] selectedCoordinates in
             
@@ -157,17 +157,17 @@ final class ChatViewController: MessagesViewController {
     }
     
     private func presentPhotoInputActionSheet() {
-        let actionSheet = UIAlertController(title: "Attach Photo",
-                                            message: "Where would you like to attach a photo from?",
+        let actionSheet = UIAlertController(title: "Skąd chcesz załączyć zdjęcie?",
+                                            message: nil,
                                             preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {[weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: "Kamera", style: .default, handler: {[weak self] _ in
             let picker = UIImagePickerController()
             picker.sourceType = .camera
             picker.delegate = self
             picker.allowsEditing = true
             self?.present(picker, animated: true)
         }))
-        actionSheet.addAction(UIAlertAction(title: "Photo library", style: .default, handler: {[weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: "Galeria zdjęć", style: .default, handler: {[weak self] _ in
             let picker = UIImagePickerController()
             picker.sourceType = .photoLibrary
             picker.delegate = self
@@ -175,16 +175,16 @@ final class ChatViewController: MessagesViewController {
             self?.present(picker, animated: true)
         }))
  
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Anuluj", style: .cancel, handler: nil))
         
         present(actionSheet, animated: true)
     }
     
     private func presentVideoInputActionSheet() {
-        let actionSheet = UIAlertController(title: "Attach Video",
-                                            message: "Where would you like to attach a video from?",
+        let actionSheet = UIAlertController(title: "Skąd chcesz załączyć wideo?",
+                                            message: nil,
                                             preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {[weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: "Kamera", style: .default, handler: {[weak self] _ in
             let picker = UIImagePickerController()
             picker.sourceType = .camera
             picker.delegate = self
@@ -193,7 +193,7 @@ final class ChatViewController: MessagesViewController {
             picker.allowsEditing = true
             self?.present(picker, animated: true)
         }))
-        actionSheet.addAction(UIAlertAction(title: "Library", style: .default, handler: {[weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: "Galeria", style: .default, handler: {[weak self] _ in
             let picker = UIImagePickerController()
             picker.sourceType = .photoLibrary
             picker.delegate = self
@@ -203,7 +203,7 @@ final class ChatViewController: MessagesViewController {
             self?.present(picker, animated: true)
         }))
  
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Anuluj", style: .cancel, handler: nil))
         
         present(actionSheet, animated: true)
     }

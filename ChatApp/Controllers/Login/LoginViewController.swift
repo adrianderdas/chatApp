@@ -41,7 +41,7 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = "Email Adress ..."
+        field.placeholder = "Adres e-mail"
         
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
@@ -58,7 +58,7 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = "Password..."
+        field.placeholder = "Hasło"
         
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
@@ -72,7 +72,7 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private let loginButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Log in", for: .normal)
+        button.setTitle("Zaloguj się", for: .normal)
         button.backgroundColor = .link
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
@@ -93,11 +93,11 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
     
-        title = "Log in"
+        title = "Logowanie"
         
         view.backgroundColor = .systemBackground
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done, target: self, action: #selector(didTapRegister))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Rejestracja", style: .done, target: self, action: #selector(didTapRegister))
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         

@@ -41,7 +41,7 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = "First name ..."
+        field.placeholder = "Imię"
         
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
@@ -58,7 +58,7 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = "Last Name..."
+        field.placeholder = "Nazwisko"
         
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
@@ -75,7 +75,7 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = "Email Adress ..."
+        field.placeholder = "Adres e-mail"
         
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
@@ -92,7 +92,7 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = "Password..."
+        field.placeholder = "Hasło"
         
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
@@ -104,7 +104,7 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     private let registerButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Register", for: .normal)
+        button.setTitle("Rejestracja", for: .normal)
         button.backgroundColor = .systemGreen
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
@@ -115,11 +115,11 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Register"
+        title = "Rejestracja"
         
         view.backgroundColor = .systemBackground
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done, target: self, action: #selector(didTapRegister))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Rejestracjaaa", style: .done, target: self, action: #selector(didTapRegister))
         
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         
@@ -258,23 +258,23 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
-    func alertUserLoginError(message: String = "Please enter all information to create a new account") {
+    func alertUserLoginError(message: String = "Wpisz potrzebne informacje do założenia konta") {
         let alert = UIAlertController(title: "Woops",
                                       message: message,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Dismiss",
+        alert.addAction(UIAlertAction(title: "Popraw formularz",
                                       style: .cancel,
                                       handler: nil))
         present(alert, animated: true)
     }
     
     
-    @objc private func didTapRegister() {
-        let vc = RegisterViewController()
-        vc.title = "Create Acoount"
-        
-        navigationController?.pushViewController(vc, animated: true)
-    }
+//    @objc private func didTapRegister() {
+//        let vc = RegisterViewController()
+//        vc.title = "Create Acoount"
+//        
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
 }
 
 extension RegisterViewController: UITextViewDelegate {
@@ -294,14 +294,14 @@ extension RegisterViewController: UITextViewDelegate {
 extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func presentPhotoActionSheet() {
-        let actionSheet = UIAlertController(title: "Profile Picture",
-                                            message: "How would you like to select a picture?",
+        let actionSheet = UIAlertController(title: "Zdjęcie profilowe",
+                                            message: "Jak chcesz dodać zdjęcie profilowe?",
                                             preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel",
+        actionSheet.addAction(UIAlertAction(title: "Anuluj",
                                             style: .cancel,
                                             handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "Take photo",
+        actionSheet.addAction(UIAlertAction(title: "Użyj aparatu",
                                             style: .default,
                                             handler: { [weak self] _ in
                                                 
@@ -309,7 +309,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
         }))
         
         
-        actionSheet.addAction(UIAlertAction(title: "Choose Photo",
+        actionSheet.addAction(UIAlertAction(title: "Wybierz z galerii",
                                             style: .default,
                                             handler: { [weak self] _ in
                                                 

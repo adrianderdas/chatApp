@@ -23,12 +23,21 @@
                                     <constraint firstAttribute="width" constant="220" id="OhG-ez-nLC"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="125-Fj-xfq">
+                                <rect key="frame" x="0.0" y="841" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="125-Fj-xfq" secondAttribute="trailing" id="0Qq-7L-NUg"/>
                             <constraint firstItem="f6y-bN-Ufu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6xr-tO-DLm"/>
+                            <constraint firstItem="125-Fj-xfq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NVG-49-C5E"/>
                             <constraint firstItem="f6y-bN-Ufu" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="R7H-HD-Dj5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="125-Fj-xfq" secondAttribute="bottom" id="YEb-fR-LxQ"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -39,6 +48,9 @@
     </scenes>
     <resources>
         <image name="logo-1" width="1024" height="1024"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
