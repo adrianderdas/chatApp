@@ -1,37 +1,46 @@
 # Messenger Real Time Chat App
 
-A swift projects to create a real time chat application in Swift using Firebase
+A swift project to create a real-time chat application in Swift using Firebase
 
 ## Features
 - Facebook Log In
 
-![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/Login.png?raw=true)
+<img src="https://github.com/adrianderdas/chatApp/blob/main/Documentation/Login.png?raw=true" width="20%" height="20%">
+
 - Email/Pass Registration/Log in
 
-![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/Registration.png?raw=true)
+<img src="https://github.com/adrianderdas/chatApp/blob/main/Documentation/Registration.png?raw=true" width="20%" height="20%">
+
 - Photo Messages
 
-![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/Photo.png?raw=true)
+<img src="https://github.com/adrianderdas/chatApp/blob/main/Documentation/Photo.png?raw=true" width="20%" height="20%">
+
 - Video Messages
 
-![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/Video.png?raw=true)
+<img src="https://github.com/adrianderdas/chatApp/blob/main/Documentation/Video.png?raw=true" width="20%" height="20%">
+
 - Real Time Conversations
 
-![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/RealTimeMess.png?raw=true)
+<img src="https://github.com/adrianderdas/chatApp/blob/main/Documentation/RealTimeMess.png?raw=true" width="20%" height="20%">
+
 - Location Messages
 
-![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/Location.png?raw=true)
-![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/LocationMessage.png?raw=true)
+<img src="https://github.com/adrianderdas/chatApp/blob/main/Documentation/Location.png?raw=true" width="20%" height="20%">
+
+<img src="https://github.com/adrianderdas/chatApp/blob/main/Documentation/LocationMessage.png?raw=true" width="20%" height="20%">
+
 - Search for Users
 
-![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/Searching.png?raw=true)
+<img src="https://github.com/adrianderdas/chatApp/blob/main/Documentation/Searching.png?raw=true" width="20%" height="20%">
+
 - Deleting Conversations
 
-![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/Deleting.png?raw=true)
+<img src="https://github.com/adrianderdas/chatApp/blob/main/Documentation/Deleting.png?raw=true" width="20%" height="20%">
+
 - User Profile
 
-![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/User.png?raw=true)
+<img src="https://github.com/adrianderdas/chatApp/blob/main/Documentation/User.png?raw=true" width="20%" height="20%">
+
 - DarkMode Support
 
-![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/Dark.png?raw=true)
-
+<img src="https://github.com/adrianderdas/chatApp/blob/main/Documentation/Dark.png?raw=true" width="20%" height="20%">
