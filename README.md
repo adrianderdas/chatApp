@@ -4,6 +4,7 @@ A swift projects to create a real time chat application in Swift using Firebase
 
 ## Features
 - Facebook Log In
+
 - Email/Pass Registration/Log in
 - Photo Messages
 - Video Messages

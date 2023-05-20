@@ -84,6 +84,8 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
     private let facebookLoginButton: FBLoginButton = {
         let button = FBLoginButton()
         button.permissions = ["email,public_profile"]
+        button.layer.cornerRadius = 12
+        button.clipsToBounds = true
         return button
     }()
     
