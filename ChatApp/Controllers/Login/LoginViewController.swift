@@ -92,7 +92,7 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
+                
         title = "Logowanie"
         
         view.backgroundColor = .systemBackground
@@ -160,9 +160,9 @@ final class LoginViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
-            DispatchQueue.main.async {
-                strongSelf.spinner.dismiss()
-            }
+//            DispatchQueue.main.async {
+//                strongSelf.spinner.dismiss()
+//            }
             guard let result = authResult, error == nil else {
                 print("Failed to log in user with email: \(email)")
                 return

@@ -38,6 +38,8 @@ final class ConversationsViewController: UIViewController {
     private var loginObserver: NSObjectProtocol?
 
     override func viewDidLoad() {
+        
+
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose,
                                                             target: self,
@@ -166,24 +168,24 @@ final class ConversationsViewController: UIViewController {
                                             height: 100)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        validateAuth()
-            }
+//    override func viewDidAppear(_ animated: Bool) {
+//        validateAuth()
+//        super.viewDidAppear(false)
+//            }
+//        
+//        
+//        
+//    private func validateAuth() {
+//        if FirebaseAuth.Auth.auth().currentUser == nil {
+//            let vc = LoginViewController()
+//            let nav = UINavigationController(rootViewController: vc)
+//            nav.modalPresentationStyle = .fullScreen
+//            present(nav, animated: false)
+//        }
         
         
         
-    private func validateAuth() {
-        if FirebaseAuth.Auth.auth().currentUser == nil {
-            let vc = LoginViewController()
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-            present(nav, animated: false)
-        }
-        
-        
-        
-    }
+    
 
     private func setupTableView() {
         tableView.delegate = self

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A214F9172A19123700BC6F47 /* ZeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A214F9162A19123700BC6F47 /* ZeroViewController.swift */; };
 		A2305CFA29CCA74600C3BA64 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2305CF929CCA74600C3BA64 /* LoginViewController.swift */; };
 		A2305CFC29CCA76800C3BA64 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2305CFB29CCA76800C3BA64 /* RegisterViewController.swift */; };
 		A2305CFE29CCA78900C3BA64 /* PhotoViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2305CFD29CCA78900C3BA64 /* PhotoViewViewController.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		3128A4C2DCD96B49936A5A2D /* Pods_ChatApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B20F38E42EF17A11B39E89F /* Pods-ChatApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.debug.xcconfig"; path = "Target Support Files/Pods-ChatApp/Pods-ChatApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A214F9162A19123700BC6F47 /* ZeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroViewController.swift; sourceTree = "<group>"; };
 		A2305CF929CCA74600C3BA64 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A2305CFB29CCA76800C3BA64 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A2305CFD29CCA78900C3BA64 /* PhotoViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				A2B6C5D729CC99A300D61F74 /* Assets.xcassets */,
 				A2966F0A2A09B6B400758DB8 /* ConversationTableViewCell.swift */,
 				A2EDEF4B2A15A792006626D3 /* NewConversationCell.swift */,
+				A214F9162A19123700BC6F47 /* ZeroViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,13 +123,6 @@
 				A29CE2322A17F3D0002CCB7A /* ProfileViewModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		A2305CF629CCA54000C3BA64 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A2305CF729CCA54800C3BA64 /* Resources */ = {
@@ -166,7 +162,6 @@
 				A24F11B329E32329007B6140 /* ChatApp.entitlements */,
 				A2925FB429D5BF19000F112A /* GoogleService-Info.plist */,
 				A2305CF729CCA54800C3BA64 /* Resources */,
-				A2305CF629CCA54000C3BA64 /* ViewModels */,
 				A2305CF529CCA53A00C3BA64 /* Models */,
 				A2305CF429CCA53200C3BA64 /* Views */,
 				A2305CF329CCA52300C3BA64 /* Controllers */,
@@ -336,6 +331,7 @@
 				A2305CFC29CCA76800C3BA64 /* RegisterViewController.swift in Sources */,
 				A2D83D6C29CE5D9100B5DB0E /* Extensions.swift in Sources */,
 				A29CE2312A17F33E002CCB7A /* SearchResult.swift in Sources */,
+				A214F9172A19123700BC6F47 /* ZeroViewController.swift in Sources */,
 				A2B6C5D329CC999E00D61F74 /* ConversationsViewController.swift in Sources */,
 				A2305D0429CCA7E900C3BA64 /* ProfileViewController.swift in Sources */,
 				A2B6C5CF29CC999E00D61F74 /* AppDelegate.swift in Sources */,
