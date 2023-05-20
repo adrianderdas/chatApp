@@ -27,10 +27,10 @@ A swift projects to create a real time chat application in Swift using Firebase
 ![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/Searching.png?raw=true)
 - Deleting Conversations
 
-![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/User.png?raw=true)
+![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/Deleting.png?raw=true)
 - User Profile
 
-![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/Deleting.png?raw=true)
+![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/User.png?raw=true)
 - DarkMode Support
 
 ![App Screenshot](https://github.com/adrianderdas/chatApp/blob/main/Documentation/Dark.png?raw=true)
